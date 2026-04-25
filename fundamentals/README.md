@@ -9,12 +9,11 @@ It walks through configuring Terraform, connecting to AWS, and provisioning a ba
 
 ### 1. Install AWS CLI
 
-Download from the official site: https://aws.amazon.com/cli/
-
-On macOS (using Homebrew):
+Download and install the AWS CLI using the official installer:
 
 ```bash
-brew install awscli
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
 ```
 
 Verify installation:
@@ -143,7 +142,7 @@ resource "aws_vpc" "my_vpc" {
 
 - Creates a Virtual Private Cloud (VPC) in AWS  
 - `aws_vpc`: resource type  
-- `my_vpc`: resource name (local to Terraform)  
+- `my_vpc`: resource name (used internally by Terraform)  
 - `cidr_block`: defines the IP address range for the VPC  
 
 ---
@@ -229,5 +228,3 @@ crash.log
 
 - Terraform Registry: https://registry.terraform.io  
 - AWS VPC Docs: https://docs.aws.amazon.com/vpc/  
-
----
