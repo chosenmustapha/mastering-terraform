@@ -1,6 +1,7 @@
 # Terraform state files (critical to ignore)
 *.tfstate
 *.tfstate.backup
+.terraform.lock.hcl
 
 # Local Terraform directory (downloaded providers)
 **/.terraform/*
