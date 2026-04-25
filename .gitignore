@@ -1,0 +1,14 @@
+# Terraform state files (critical to ignore)
+*.tfstate
+*.tfstate.backup
+
+# Local Terraform directory (downloaded providers)
+**/.terraform/*
+
+# Variable files (often contain secrets)
+*.tfvars
+*.tfvars.json
+
+# Crash and log files
+crash.log
+*.log   
