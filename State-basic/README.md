@@ -1,4 +1,4 @@
-# Terraform AWS Remote State with S3 (State-Basic)
+# ☁️Terraform AWS Remote State with S3 (State-Basic)
 
 This project demonstrates a foundational yet production-relevant Terraform setup that provisions AWS infrastructure while securely managing state using an **S3 remote backend with native locking**.
 It builds on basic Terraform workflows by introducing **remote state management**, which is essential for real-world cloud environments where security, consistency, and collaboration matter.
