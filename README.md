@@ -1,4 +1,4 @@
-# 🌍 Terraform Learning Journey
+# ☁️ Terraform Learning Journey
 
 This repository documents my hands-on journey learning **Terraform**, with a focus on provisioning and managing infrastructure on **AWS**.
 
