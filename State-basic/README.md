@@ -1,4 +1,4 @@
-# Terraform AWS Remote State with S3 (State-Basic)
+# ☁️ Terraform AWS Remote State with S3 (State-Basic)
 
 This project demonstrates a foundational yet production-relevant Terraform setup that provisions AWS infrastructure while securely managing state using an **S3 remote backend with native locking**.
 It builds on basic Terraform workflows by introducing **remote state management**, which is essential for real-world cloud environments where security, consistency, and collaboration matter.
@@ -8,6 +8,7 @@ It builds on basic Terraform workflows by introducing **remote state management*
 ## 🚀 Project Summary
 
 This configuration:
+
 - Provisions a basic AWS VPC
 - Stores Terraform state remotely in an S3 bucket
 - Uses **native S3 locking (`use_lockfile`)** to prevent concurrent modifications
@@ -155,6 +156,7 @@ terraform init
 ```bash
 terraform plan
 ```
+
 - Shows what Terraform will create before applying  
 
 ---
@@ -206,5 +208,8 @@ terraform destroy
 ## 📌 Important Notes
 
 - Ensure your S3 bucket already exists before running `terraform init`  
-- Enable **bucket versioning** for additional protection against accidental state loss   
+- Enable **bucket versioning** for additional protection against accidental state loss  
+- Use IAM roles or users with least-privilege access in real environments   
+- Requires Terraform >= 1.11.0 for stable S3 native locking support 
 ---
+This project establishes a **modern Terraform baseline** by combining infrastructure provisioning with **secure, remote state management using S3 and native locking** — a core pattern in real-world DevOps workflows.
