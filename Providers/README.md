@@ -1,4 +1,4 @@
-# 🌍 Terraform AWS Fundamentals
+# ☁️ Terraform AWS Fundamentals
 
 This project demonstrates a simple Terraform setup using the AWS provider.  
 It walks through configuring Terraform, connecting to AWS, and provisioning a basic resource (a VPC).
