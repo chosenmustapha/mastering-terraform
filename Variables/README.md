@@ -16,7 +16,6 @@ The configuration provisions an AWS VPC while illustrating:
 ---
 
 ## Project Structure
-
 .
 ├── README.md
 ├── backend.tf
