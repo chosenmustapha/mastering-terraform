@@ -15,7 +15,6 @@ The configuration provisions an AWS VPC while illustrating:
 
 ## Project Structure
 
-```md
 ```
 .
 ├── README.md
@@ -27,7 +26,6 @@ The configuration provisions an AWS VPC while illustrating:
 ├── terraform.tfstate
 ├── terraform.tfstate.backup
 └── variables.tf
-```
 ```
 
 Terraform reads all `.tf` files in this directory as a single configuration. The separation is purely for clarity and organization.
