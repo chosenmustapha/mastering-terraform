@@ -1,4 +1,9 @@
 
+# Add this locals block at the top
+locals {
+  az_map = { for idx, az in tolist(var.availability_zone) : az => idx }
+}
+
 resource "aws_vpc" "my-vpc" {
   cidr_block = var.cidr_block
   tags       = var.tags
@@ -29,20 +34,22 @@ resource "aws_vpc_security_group_egress_rule" "allow_all_traffic_ipv4" {
 }
 
 resource "aws_subnet" "main" {
+  for_each          = local.az_map
   vpc_id            = aws_vpc.my-vpc.id
-  cidr_block        = cidrsubnet(var.cidr_block, 8, 1)  # e.g., 10.0.1.0/24
-  availability_zone = "us-east-2a"
-  
+  cidr_block        = cidrsubnet(var.cidr_block, 8, each.value)
+  availability_zone = each.key
+
   tags = {
-    Name = "main-subnet"
+    Name = "subnet-${each.key}"
   }
 }
 
 
 resource "aws_instance" "my_ubuntu_ec2" {
+  for_each               = var.availability_zone
   ami                    = "ami-0fe18bc3cfa53a248"
   instance_type          = var.instance_type[2]
-  subnet_id              = aws_subnet.main.id                     
-  vpc_security_group_ids = [aws_security_group.allow_tls.id]  
+  subnet_id              = aws_subnet.main[each.key].id
+  vpc_security_group_ids = [aws_security_group.allow_tls.id]
   tags                   = var.instance_tags
 }
