@@ -6,3 +6,20 @@
 # 5. provider: This argument allows you to specify a specific provider configuration for a resource. It is useful when you have multiple provider configurations and want to use a specific one for a resource.
 
 # In this example we will be covering the count, foreach, provicer and depends_on meta-arguments.
+
+# Define s3 bucket resource
+resource "aws_s3_bucket" "amz-s3-bucket" {
+  # Use count to create multiple buckets based on the bucket_names variable
+  count  = length(var.bucket_names)
+  bucket = var.bucket_names[count.index]
+  depends_on = [ aws_s3_bucket.amz-s3-bucket-map ]
+  tags   = var.tags
+
+}
+
+resource "aws_s3_bucket" "amz-s3-bucket-map" {
+  # Use for_each to create multiple buckets based on the bucket_names_map variable
+  for_each = var.bucket_names_map
+  bucket   = each.value
+  tags     = var.tags
+}
