@@ -184,14 +184,3 @@ Before deploying this project, ensure the following are installed and configured
 - Understanding lifecycle behavior improves reliability, scalability, and operational safety.
 
 ---
-
-# Technologies Used
-
-- Terraform
-- AWS
-- Amazon VPC
-- EC2
-- Auto Scaling Groups
-- Launch Templates
-- Amazon RDS
-- Security Groups
