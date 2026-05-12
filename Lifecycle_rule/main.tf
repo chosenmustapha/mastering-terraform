@@ -101,8 +101,6 @@ resource "aws_db_instance" "production" {
 
   vpc_security_group_ids = [aws_security_group.web_sg.id]
   
-  skip_final_snapshot = true
- 
   lifecycle {
     prevent_destroy = false
   }
