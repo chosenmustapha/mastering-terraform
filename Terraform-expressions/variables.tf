@@ -3,6 +3,20 @@ variable "region" {
   default = "us-east-1"
 }
 
+variable "tags" {
+  type = map(string)
+  default = {
+    name        = "My Debian Instance"
+    Environment = "Development"
+    Owner       = "Mustapha"
+  }
+}
+
+variable "instances_count" {
+  type    = number
+  default = 2
+}
+
 variable "ingress_rules" {
   type = list(object({
     from_port   = number
@@ -24,4 +38,14 @@ variable "ingress_rules" {
       cidr_blocks = ["0.0.0.0/0"]
     }
   ]
+}
+
+variable "instance_type" {
+  type    = list(string)
+  default = ["t2.micro", "t3.micro"]
+}
+
+variable "environment" {
+  type    = list(string)
+  default = ["development", "production", "staging"]
 }
