@@ -24,5 +24,5 @@ variable "project_name" {
 variable "function_name" {
   description = "The name of the Lambda function."
   type        = string
-  default     = "my_lambda_function"
+  default     = "my_lambda_function_role"
 }
