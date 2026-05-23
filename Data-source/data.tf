@@ -21,7 +21,7 @@ data "aws_subnet" "dev_subnets" {
 # Canonical Ubuntu 26.04 LTS (arm64)
 data "aws_ami" "ubuntu_26_04_arm64" {
   most_recent = true
-  owners = ["099720109477"] # Canonical
+  owners      = ["099720109477"] # Canonical
 
   filter {
     name   = "name"
