@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Booth</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <!-- Elegant Header with Artistic Title -->
+        <header class="header">
+            <div class="title-container">
+                <div class="title-decoration left">
+                    <span class="sparkle">✦</span>
+                    <span class="camera-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                    </span>
+                    <span class="sparkle small">✧</span>
+                </div>
+                
+                <div class="title-main">
+                    <div class="title-top">
+                        <span class="lens-flare">◐</span>
+                        <span class="title-accent">✺</span>
+                        <span class="title-star">★</span>
+                    </div>
+                    <h1 class="logo">
+                        <span class="logo-letter" style="--i:0">P</span><span class="logo-letter" style="--i:1">h</span><span class="logo-letter" style="--i:2">o</span><span class="logo-letter" style="--i:3">t</span><span class="logo-letter" style="--i:4">o</span>
+                        <span class="logo-divider">
+                            <svg class="aperture-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="2" x2="12" y2="6"/>
+                                <line x1="12" y1="18" x2="12" y2="22"/>
+                                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/>
+                                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/>
+                                <line x1="2" y1="12" x2="6" y2="12"/>
+                                <line x1="18" y1="12" x2="22" y2="12"/>
+                                <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/>
+                                <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/>
+                            </svg>
+                        </span>
+                        <span class="logo-letter" style="--i:5">B</span><span class="logo-letter" style="--i:6">o</span><span class="logo-letter" style="--i:7">o</span><span class="logo-letter" style="--i:8">t</span><span class="logo-letter" style="--i:9">h</span>
+                    </h1>
+                    <div class="title-bottom">
+                        <span class="title-star">★</span>
+                        <span class="title-accent">✺</span>
+                        <span class="lens-flare flip">◐</span>
+                    </div>
+                </div>
+                
+                <div class="title-decoration right">
+                    <span class="sparkle small">✧</span>
+                    <span class="camera-icon flip">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                    </span>
+                    <span class="sparkle">✦</span>
+                </div>
+            </div>
+            
+            <p class="tagline">
+                <!-- <span class="tagline-icon">📷</span> -->
+                <span class="tagline-text">Where Moments Become Memories</span>
+                <!-- <span class="tagline-icon">✨</span> -->
+            </p>
+            
+            <div class="title-underline">
+                <span class="underline-dot">●</span>
+                <span class="underline-line"></span>
+                <span class="underline-diamond">◆</span>
+                <span class="underline-line"></span>
+                <span class="underline-dot">●</span>
+            </div>
+        </header>
+
+        <!-- Main Stage -->
+        <main class="stage">
+            <!-- Permission Overlay -->
+            <div id="permission-overlay" class="permission-overlay">
+                <div class="permission-card">
+                    <div class="permission-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                            <circle cx="12" cy="13" r="4"/>
+                        </svg>
+                    </div>
+                    <h2>Enable Camera</h2>
+                    <p>Allow camera access to start capturing</p>
+                    <button id="enable-camera-btn" class="btn-primary">
+                        <span>Continue</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-overlay" class="error-overlay hidden">
+                <div class="error-card">
+                    <div class="error-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="8" x2="12" y2="12"/>
+                            <line x1="12" y1="16" x2="12.01" y2="16"/>
+                        </svg>
+                    </div>
+                    <h2>Camera Unavailable</h2>
+                    <p id="error-text">Unable to access camera</p>
+                    <button id="retry-btn" class="btn-secondary">Try Again</button>
+                </div>
+            </div>
+
+            <!-- Video Preview Container -->
+            <div class="preview-container">
+                <div class="preview-frame" id="preview-frame">
+                    <video id="video" autoplay playsinline muted></video>
+                    <canvas id="preview-canvas"></canvas>
+                    
+                    <!-- Grid Overlay -->
+                    <div id="grid-overlay" class="grid-overlay hidden"></div>
+                    
+                    <!-- Filter Indicator -->
+                    <div id="filter-indicator" class="filter-indicator">
+                        <span id="filter-name">Original</span>
+                    </div>
+                    
+                    <!-- Countdown Overlay -->
+                    <div id="countdown-overlay" class="countdown-overlay hidden">
+                        <span id="countdown-number">3</span>
+                    </div>
+                    
+                    <!-- Flash Effect -->
+                    <div id="flash-overlay" class="flash-overlay"></div>
+
+                    <!-- Zoom Controls -->
+                    <div class="zoom-controls hidden" id="zoom-controls">
+                        <button class="zoom-btn" id="zoom-out" title="Zoom Out">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M8 11h6"/>
+                            </svg>
+                        </button>
+                        <span id="zoom-level">1.0x</span>
+                        <button class="zoom-btn" id="zoom-in" title="Zoom In">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Capture Button -->
+            <div class="capture-section">
+                <button id="capture-btn" class="capture-btn" title="Capture Photo">
+                    <span class="capture-btn-ring"></span>
+                    <span class="capture-btn-inner"></span>
+                </button>
+            </div>
+
+            <!-- Minimal Toolbar -->
+            <nav class="toolbar">
+                <button class="tool-btn" id="filters-btn" title="Filters" data-active="false">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    <span class="tool-label">Filters</span>
+                </button>
+                
+                <button class="tool-btn" id="timer-btn" title="Timer" data-active="false">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="10"/>
+                        <polyline points="12 6 12 12 16 14"/>
+                    </svg>
+                    <span class="tool-label" id="timer-label">Off</span>
+                </button>
+                
+                <button class="tool-btn" id="mode-btn" title="Capture Mode">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                    </svg>
+                    <span class="tool-label" id="mode-label">Single</span>
+                </button>
+                
+                <button class="tool-btn" id="aspect-btn" title="Aspect Ratio">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                    </svg>
+                    <span class="tool-label" id="aspect-label">16:9</span>
+                </button>
+                
+                <button class="tool-btn" id="settings-btn" title="Settings">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    <span class="tool-label">Settings</span>
+                </button>
+
+                <button class="tool-btn" id="gallery-btn" title="Gallery">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span class="tool-label">Gallery</span>
+                    <span class="gallery-count hidden" id="gallery-count">0</span>
+                </button>
+            </nav>
+        </main>
+
+        <!-- Filter Panel (Slides up) -->
+        <div id="filter-panel" class="panel filter-panel hidden">
+            <div class="panel-header">
+                <h3>Filters</h3>
+                <button class="panel-close" id="filter-panel-close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="filter-grid" id="filter-grid">
+                <button class="filter-option active" data-filter="none">
+                    <span class="filter-preview original"></span>
+                    <span class="filter-title">Original</span>
+                </button>
+                <button class="filter-option" data-filter="mirror">
+                    <span class="filter-preview mirror"></span>
+                    <span class="filter-title">Mirror</span>
+                </button>
+                <button class="filter-option" data-filter="kaleidoscope">
+                    <span class="filter-preview kaleidoscope"></span>
+                    <span class="filter-title">Kaleidoscope</span>
+                </button>
+                <button class="filter-option" data-filter="pixelate">
+                    <span class="filter-preview pixelate"></span>
+                    <span class="filter-title">Pixelate</span>
+                </button>
+                <button class="filter-option" data-filter="wavy">
+                    <span class="filter-preview wavy"></span>
+                    <span class="filter-title">Wavy</span>
+                </button>
+                <button class="filter-option" data-filter="cartoon">
+                    <span class="filter-preview cartoon"></span>
+                    <span class="filter-title">Cartoon</span>
+                </button>
+                <button class="filter-option" data-filter="vintage">
+                    <span class="filter-preview vintage"></span>
+                    <span class="filter-title">Vintage</span>
+                </button>
+                <button class="filter-option" data-filter="neon">
+                    <span class="filter-preview neon"></span>
+                    <span class="filter-title">Neon</span>
+                </button>
+                <button class="filter-option" data-filter="fisheye">
+                    <span class="filter-preview fisheye"></span>
+                    <span class="filter-title">Fisheye</span>
+                </button>
+                <button class="filter-option" data-filter="stretch">
+                    <span class="filter-preview stretch"></span>
+                    <span class="filter-title">Stretch</span>
+                </button>
+                <button class="filter-option" data-filter="beauty">
+                    <span class="filter-preview beauty"></span>
+                    <span class="filter-title">Beauty</span>
+                </button>
+            </div>
+
+            <!-- Adjustment Sliders -->
+            <div class="adjustments">
+                <div class="adjustment-row">
+                    <label>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                        </svg>
+                        <span>Brightness</span>
+                    </label>
+                    <input type="range" id="brightness-slider" min="-100" max="100" value="0">
+                    <span class="value" id="brightness-value">0</span>
+                </div>
+                <div class="adjustment-row">
+                    <label>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/>
+                        </svg>
+                        <span>Contrast</span>
+                    </label>
+                    <input type="range" id="contrast-slider" min="-100" max="100" value="0">
+                    <span class="value" id="contrast-value">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timer Panel -->
+        <div id="timer-panel" class="panel timer-panel hidden">
+            <div class="panel-header">
+                <h3>Timer</h3>
+                <button class="panel-close" id="timer-panel-close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="timer-options">
+                <button class="timer-option active" data-seconds="0">Off</button>
+                <button class="timer-option" data-seconds="3">3s</button>
+                <button class="timer-option" data-seconds="5">5s</button>
+                <button class="timer-option" data-seconds="10">10s</button>
+            </div>
+        </div>
+
+        <!-- Mode Panel (Single, Burst, Strip, Collage) -->
+        <div id="mode-panel" class="panel mode-panel hidden">
+            <div class="panel-header">
+                <h3>Capture Mode</h3>
+                <button class="panel-close" id="mode-panel-close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mode-options">
+                <button class="mode-option active" data-mode="single">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    </svg>
+                    <span>Single</span>
+                </button>
+                <button class="mode-option" data-mode="burst">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Burst (4)</span>
+                </button>
+                <button class="mode-option" data-mode="strip">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="8" y="2" width="8" height="5"/><rect x="8" y="8" width="8" height="5"/>
+                        <rect x="8" y="14" width="8" height="5"/><rect x="8" y="20" width="8" height="2"/>
+                    </svg>
+                    <span>Photo Strip</span>
+                </button>
+                <button class="mode-option" data-mode="collage">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/>
+                        <rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/>
+                    </svg>
+                    <span>Collage</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Aspect Ratio Panel -->
+        <div id="aspect-panel" class="panel aspect-panel hidden">
+            <div class="panel-header">
+                <h3>Aspect Ratio</h3>
+                <button class="panel-close" id="aspect-panel-close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="aspect-options">
+                <button class="aspect-option" data-aspect="1:1">
+                    <div class="aspect-preview square"></div>
+                    <span>1:1</span>
+                </button>
+                <button class="aspect-option" data-aspect="4:3">
+                    <div class="aspect-preview four-three"></div>
+                    <span>4:3</span>
+                </button>
+                <button class="aspect-option active" data-aspect="16:9">
+                    <div class="aspect-preview sixteen-nine"></div>
+                    <span>16:9</span>
+                </button>
+                <button class="aspect-option" data-aspect="golden">
+                    <div class="aspect-preview golden"></div>
+                    <span>φ Golden</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Settings Panel -->
+        <div id="settings-panel" class="panel settings-panel hidden">
+            <div class="panel-header">
+                <h3>Settings</h3>
+                <button class="panel-close" id="settings-panel-close">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="settings-list">
+                <!-- Camera Selection -->
+                <div class="setting-item">
+                    <label>Camera</label>
+                    <select id="camera-select">
+                        <option value="user">Front Camera</option>
+                        <option value="environment">Back Camera</option>
+                    </select>
+                </div>
+                
+                <!-- Mirror Toggle -->
+                <div class="setting-item">
+                    <label>Mirror Preview</label>
+                    <button class="toggle active" id="mirror-toggle">
+                        <span class="toggle-slider"></span>
+                    </button>
+                </div>
+                
+                <!-- Flash Toggle -->
+                <div class="setting-item">
+                    <label>Capture Flash</label>
+                    <button class="toggle active" id="flash-toggle">
+                        <span class="toggle-slider"></span>
+                    </button>
+                </div>
+                
+                <!-- Sound Toggle -->
+                <div class="setting-item">
+                    <label>Shutter Sound</label>
+                    <button class="toggle" id="sound-toggle">
+                        <span class="toggle-slider"></span>
+                    </button>
+                </div>
+                
+                <!-- Grid Overlay -->
+                <div class="setting-item">
+                    <label>Composition Grid</label>
+                    <select id="grid-select">
+                        <option value="none">None</option>
+                        <option value="thirds">Rule of Thirds</option>
+                        <option value="golden">Golden Spiral</option>
+                        <option value="center">Center Cross</option>
+                    </select>
+                </div>
+                
+                <!-- Theme Toggle -->
+                <div class="setting-item">
+                    <label>Theme</label>
+                    <div class="theme-toggle" id="theme-toggle">
+                        <button class="theme-option active" data-theme="dark">Dark</button>
+                        <button class="theme-option" data-theme="light">Light</button>
+                    </div>
+                </div>
+                
+                <!-- Fullscreen -->
+                <div class="setting-item">
+                    <label>Fullscreen</label>
+                    <button class="btn-small" id="fullscreen-btn">Enter</button>
+                </div>
+                
+                <!-- Quality -->
+                <div class="setting-item">
+                    <label>Photo Quality</label>
+                    <select id="quality-select">
+                        <option value="0.7">Standard</option>
+                        <option value="0.85">High</option>
+                        <option value="1.0" selected>Maximum</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Panel -->
+        <div id="gallery-panel" class="panel gallery-panel hidden">
+            <div class="panel-header">
+                <h3>Gallery</h3>
+                <div class="panel-actions">
+                    <button class="btn-icon-small" id="clear-gallery-btn" title="Clear All">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                    </button>
+                    <button class="panel-close" id="gallery-panel-close">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="gallery-grid" id="gallery-grid">
+                <div class="gallery-empty">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <p>No photos yet</p>
+                    <span>Capture your first moment</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photo Modal -->
+        <div id="photo-modal" class="modal hidden">
+            <div class="modal-backdrop"></div>
+            <div class="modal-content">
+                <button class="modal-close" id="modal-close">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                    </svg>
+                </button>
+                <img id="modal-image" src="" alt="Captured photo">
+                <div class="modal-actions">
+                    <button class="modal-btn" id="download-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        <span>Download</span>
+                    </button>
+                    <button class="modal-btn" id="share-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                        </svg>
+                        <span>Share</span>
+                    </button>
+                    <button class="modal-btn delete" id="delete-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                        </svg>
+                        <span>Delete</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Burst/Strip Progress Indicator -->
+        <div id="capture-progress" class="capture-progress hidden">
+            <div class="progress-dots">
+                <span class="progress-dot"></span>
+                <span class="progress-dot"></span>
+                <span class="progress-dot"></span>
+                <span class="progress-dot"></span>
+            </div>
+            <span class="progress-text">Capturing 1 of 4</span>
+        </div>
+    </div>
+
+    <!-- Audio (hidden, loaded on interaction) -->
+    <audio id="shutter-sound" preload="none">
+        <source src="data:audio/mp3;base64,SUQzBAAAAAAAI1RTU0UAAAAPAAADTGF2ZjU4Ljc2LjEwMAAAAAAAAAAAAAAA//tQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAABhgC7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7u7//////////////////////////////////////////////////////////////////8AAAAATGF2YzU4LjEzAAAAAAAAAAAAAAAAJAAAAAAAAAAAAYYFaqQKAAAAAAD/+9DEAAAHAAGgAAAAACqADSAAAAETEFNRTMuMTAwVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV//tQxCwAAADSAAAAAAAAANIAAAAA" type="audio/mp3">
+    </audio>
+
+    <script src="js/filters.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
