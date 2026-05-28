@@ -5,8 +5,8 @@ variable "region" {
 }
 
 variable "bucket_name" {
-  description = "the name of the S3 bucket to create"
+  description = "The name of the S3 bucket to create"
 }
-variable "domain_name" {
-  description = "the domain name to use for the web hosting"
-}
+# variable "domain_name" {
+#   description = "The domain name to use for the web hosting"
+# }
