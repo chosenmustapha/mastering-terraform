@@ -13,6 +13,3 @@
 # Crash and log files
 crash.log
 *.log   
-
-# Ignore png files
-*.png
