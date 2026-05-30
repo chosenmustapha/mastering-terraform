@@ -289,9 +289,6 @@ yes
 
 ## Future Enhancements
 
-- Origin Access Control (OAC)
-- Private S3 bucket architecture
-- Custom domain integration
 - Route 53 DNS management
 - AWS Certificate Manager (ACM)
 - GitHub Actions CI/CD pipeline
