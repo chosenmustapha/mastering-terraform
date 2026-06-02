@@ -1,6 +1,6 @@
 resource "aws_vpc" "east" {
-
-  cidr_block = "10.0.0.0/16"
+  provider = aws.East_region
+  cidr_block = var.east_vpc_cidr
 
   tags = {
     Name = "east-vpc"

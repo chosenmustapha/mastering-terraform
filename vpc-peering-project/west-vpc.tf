@@ -1,6 +1,7 @@
 resource "aws_vpc" "west" {
 
-  cidr_block = "10.1.0.0/16"
+  provider = aws.West_region
+  cidr_block = var.west_vpc_cidr
 
   tags = {
     Name = "west-vpc"
