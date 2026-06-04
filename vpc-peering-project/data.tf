@@ -47,3 +47,5 @@ data "aws_ami" "west_instance" {
     values = ["ebs"]
   }
 }
+
+data "aws_caller_identity" "current" {}
