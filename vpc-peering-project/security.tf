@@ -10,10 +10,17 @@ resource "aws_security_group" "east_sg" {
     cidr_blocks = [var.my_public_ip]
   }
 
+  ingress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = [aws_vpc.west.cidr_block]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "icmp"
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -34,10 +41,18 @@ resource "aws_security_group" "west_sg" {
     cidr_blocks = [var.my_public_ip]
   }
 
+
+  ingress {
+    from_port   = -1
+    to_port     = -1
+    protocol    = "icmp"
+    cidr_blocks = [aws_vpc.east.cidr_block]
+  }
+
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "icmp"
+    protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
