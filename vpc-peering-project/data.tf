@@ -1,4 +1,5 @@
 data "aws_ami" "east_instance" {
+  provider    = aws.East_region
   most_recent = true
   owners      = ["099720109477"]
 
@@ -24,6 +25,7 @@ data "aws_ami" "east_instance" {
 }
 
 data "aws_ami" "west_instance" {
+  provider    = aws.West_region
   most_recent = true
   owners      = ["099720109477"]
 
