@@ -23,6 +23,11 @@ variable "west_vpc_cidr" {
   type        = string
 }
 
+variable "canada_vpc_cidr" {
+  description = "The CIDR block for the canada VPC."
+  type        = string
+}
+
 variable "my_public_ip" {
   description = "my home network public IP address"
 }
