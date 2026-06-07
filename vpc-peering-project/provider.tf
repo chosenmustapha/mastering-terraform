@@ -16,3 +16,8 @@ provider "aws" {
   alias  = "West_region"
   region = var.west_region
 }
+
+provider "aws" {
+  alias = "Canada_region"
+  region = var.canada_region
+}

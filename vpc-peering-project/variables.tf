@@ -8,6 +8,11 @@ variable "west_region" {
   type        = string
 }
 
+variable "canada_region" {
+  description = "The region where the VPCs will be created."
+  type        = string
+}
+
 variable "east_vpc_cidr" {
   description = "The CIDR block for the east VPC."
   type        = string
