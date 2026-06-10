@@ -14,7 +14,7 @@ resource "aws_key_pair" "west_key_pair" {
 
 # Central region key pair
 resource "aws_key_pair" "central_key_pair" {
-  provider = aws.Canada_region
-  key_name = "central-key-pair"
+  provider   = aws.Canada_region
+  key_name   = "central-key-pair"
   public_key = file("~/.ssh/my-aws-key.pub")
 }
