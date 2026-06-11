@@ -15,7 +15,7 @@ resource "aws_security_group" "east_sg" {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
-    cidr_blocks = [aws_vpc.west.cidr_block]
+    cidr_blocks = [aws_vpc.west.cidr_block, aws_vpc.central.cidr_block]
   }
 
   egress {
@@ -48,7 +48,7 @@ resource "aws_security_group" "west_sg" {
     from_port   = -1
     to_port     = -1
     protocol    = "icmp"
-    cidr_blocks = [aws_vpc.east.cidr_block]
+    cidr_blocks = [aws_vpc.east.cidr_block, aws_vpc.central.cidr_block]
   }
 
   egress {
