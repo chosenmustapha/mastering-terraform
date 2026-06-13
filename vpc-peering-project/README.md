@@ -10,7 +10,7 @@ The infrastructure is fully automated with Terraform: VPCs, subnets, internet ga
 
 ## Architecture
 
-![Three-Region VPC Peering Diagram](./assets/three_vpc_peering_drawio.png)
+![Three-Region VPC Peering Diagram](./assets/three_vpc_peering.drawio.png)
 
 | VPC | Region | CIDR Block | Public Subnet |
 |---|---|---|---|
