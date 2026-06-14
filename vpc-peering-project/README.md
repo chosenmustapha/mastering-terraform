@@ -33,7 +33,9 @@ Each connection uses the requester/accepter resource split required for cross-re
 ## Project Structure
 
 ```
-vpc-peering/
+vpc-peering-project/
+├── assets/
+│   └── three_vpc_peering.drawio.png
 ├── provider.tf          # Three aliased AWS providers (one per region)
 ├── backend.tf           # Remote S3 backend with state locking and encryption
 ├── variables.tf         # Input variable declarations
@@ -47,7 +49,8 @@ vpc-peering/
 ├── data.tf              # AMI data sources per region + caller identity lookup
 ├── keypair.tf           # EC2 key pairs registered in each region
 ├── ec2.tf               # EC2 instances — one per VPC/region
-└── outputs.tf           # Public and private IPs for all three instances
+├── outputs.tf           # Public and private IPs for all three instances
+└── README.md
 ```
 
 ---
@@ -85,7 +88,7 @@ vpc-peering/
 
 ```bash
 git clone https://github.com/chosenmustapha/mastering-terraform.git
-cd mastering-terraform/vpc-peering
+cd mastering-terraform/vpc-peering-project
 ```
 
 ### 2. Update `terraform.tfvars`
@@ -103,7 +106,7 @@ my_public_ip    = "YOUR.PUBLIC.IP/32"   # replace with your IP
 instance_type   = "t4g.micro"
 ```
 
-> Run `curl -4 ifconfig.me` to find your current public IP v4.
+> Run `curl -4 ifconfig.me` to find your current public IPv4 address.
 
 ### 3. Update `backend.tf`
 
