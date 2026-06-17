@@ -12,27 +12,27 @@ variable "company_name" {
 
 variable "password_policy" {
   description = "Password policy for IAM users"
-  type        = object({
-    minimum_length    = number
-    require_uppercase = bool
-    require_lowercase = bool
-    require_numbers   = bool
-    require_symbols   = bool
+  type = object({
+    minimum_length                 = number
+    require_uppercase              = bool
+    require_lowercase              = bool
+    require_numbers                = bool
+    require_symbols                = bool
     allow_users_to_change_password = bool
-    max_password_age    = number
-    password_reuse_prevention = number 
-    hard_expiry = bool
+    max_password_age               = number
+    password_reuse_prevention      = number
+    hard_expiry                    = bool
   })
   default = {
-    minimum_length    = 12
-    require_uppercase = true
-    require_lowercase = true
-    require_numbers   = true
-    require_symbols   = true
+    minimum_length                 = 12
+    require_uppercase              = true
+    require_lowercase              = true
+    require_numbers                = true
+    require_symbols                = true
     allow_users_to_change_password = true
-    max_password_age    = 90
-    password_reuse_prevention = 12
-    hard_expiry = false
+    max_password_age               = 90
+    password_reuse_prevention      = 12
+    hard_expiry                    = false
   }
 }
 
