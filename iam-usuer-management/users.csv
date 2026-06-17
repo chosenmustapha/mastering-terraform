@@ -1,0 +1,11 @@
+username,department,job_title,email
+alice.johnson,engineering,senior-engineer,alice.johnson@company.com
+bob.smith,engineering,devops-engineer,bob.smith@company.com
+carol.white,product,product-manager,carol.white@company.com
+dan.brown,product,ux-designer,dan.brown@company.com
+eve.davis,sales,sales-lead,eve.davis@company.com
+frank.miller,sales,account-executive,frank.miller@company.com
+grace.wilson,marketing,marketing-manager,grace.wilson@company.com
+henry.moore,marketing,content-strategist,henry.moore@company.com
+iris.taylor,finance,finance-analyst,iris.taylor@company.com
+jack.anderson,finance,accountant,jack.anderson@company.com
