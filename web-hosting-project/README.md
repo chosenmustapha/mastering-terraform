@@ -126,7 +126,7 @@ aws configure
 ### Clone the Repository
 
 ```bash
-git clone 
+git clone https://github.com/chosenmustapha/mastering-terraform.git
 cd web-hosting-project
 ```
 
