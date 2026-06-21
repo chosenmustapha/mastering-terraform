@@ -356,7 +356,7 @@ Before running this project, ensure the following are installed and configured:
 ## 1. Clone the Repository
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/chosenmustapha/mastering-terraform.git
 cd Terraform-expressions
 ```
 
