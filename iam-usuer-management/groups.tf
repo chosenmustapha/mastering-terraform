@@ -22,3 +22,10 @@ resource "aws_iam_group" "departments" {
 }
 
 # Attach department specific policies to each department group.
+
+resource "aws_iam_group_policy_attachment" "department_policies" {
+  for_each = toset(var.departments)
+
+  group      = aws_iam_group.departments[each.key].name
+  policy_arn = aws_iam_policy.department_policies[each.key].arn
+}
