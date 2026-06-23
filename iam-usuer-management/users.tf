@@ -29,13 +29,16 @@ resource "aws_iam_user" "users" {
 
 #Assign users to groups based on department
 resource "aws_iam_user_group_membership" "users_groups" {
+
   for_each = local.users_map
 
   user = aws_iam_user.users[each.key].name
+
   groups = [
-    # aws_iam_group.department_groups[each.value.department].name,
-    # aws_iam_group.all_users.name
+    aws_iam_group.departments[each.value.department].name,
+    aws_iam_group.all_users.name
   ]
+
 }
 
 # MFA enforement policy
