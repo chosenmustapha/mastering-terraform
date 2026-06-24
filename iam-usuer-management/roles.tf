@@ -70,9 +70,9 @@ resource "aws_iam_group_policy" "assume_data_lake_role" {
     Version = "2012-10-17"
     Statement = [
       {
-        Sid    = "AllowAssumeDataLakeRole"
-        Effect = "Allow"
-        Action = "sts:AssumeRole"
+        Sid      = "AllowAssumeDataLakeRole"
+        Effect   = "Allow"
+        Action   = "sts:AssumeRole"
         Resource = aws_iam_role.data_lake_reader.arn
       }
     ]
@@ -119,9 +119,9 @@ resource "aws_iam_group_policy" "engineering_assume_devops" {
     Version = "2012-10-17"
     Statement = [
       {
-        Sid    = "AllowAssumeDevOpsRole"
-        Effect = "Allow"
-        Action = "sts:AssumeRole"
+        Sid      = "AllowAssumeDevOpsRole"
+        Effect   = "Allow"
+        Action   = "sts:AssumeRole"
         Resource = aws_iam_role.devops_access.arn
       }
     ]
