@@ -209,8 +209,8 @@ Exposes created users, group ARNs, role ARNs, and department membership after ap
 ```
 ┌────────────────────────────────────────┐
 │         Inline Policy (per user)       │
-│   MFA Enforcement — DENY everything   │
-│   until MFA device is registered      │
+│   MFA Enforcement — DENY everything    │
+│   until MFA device is registered       │
 └──────────────────┬─────────────────────┘
                    │ overrides
 ┌──────────────────▼─────────────────────┐
