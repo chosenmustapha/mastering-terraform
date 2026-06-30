@@ -368,8 +368,8 @@ df-subnet-az-us-east-1a
 ## 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
-cd <repository-name>
+git clone https://github.com/chosenmustapha/mastering-terraform.git
+cd Data-source
 ```
 
 ---
