@@ -137,7 +137,7 @@ resource "aws_lb_target_group" "blue" {
   }
 }
 
-resource "aws_lb_target_group" "greep" {
+resource "aws_lb_target_group" "green" {
   name     = "green-tg"
   port     = 80
   protocol = "HTTP"
@@ -150,6 +150,10 @@ resource "aws_lb_target_group" "greep" {
     timeout             = 5
     interval            = 30
     matcher             = "200"
+  }
+  
+  tags = {
+    name = "green-target-group"
   }
 }
 
