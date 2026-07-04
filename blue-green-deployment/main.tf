@@ -24,6 +24,7 @@ data "aws_ami" "ubuntu_26_04_arm64" {
   }
 }
 
+
 resource "aws_vpc" "main" {
   cidr_block           = var.vpc_cidr
   enable_dns_hostnames = true
@@ -181,3 +182,39 @@ resource "aws_lb_listener" "http" {
 }
 
 
+resource "aws_instance" "blue" {
+  ami             = data.aws_ami.ubuntu_26_04_arm64.id
+  instance_type   = var.instance_type
+  subnet_id       = aws_subnet.public[0].id
+  security_groups = [aws_security_group.ec2.id]
+  user_data       = file("user_data_blue.sh")
+
+  tags = {
+    Name = "blue-instance"
+  }
+}
+
+resource "aws_instance" "green" {
+  ami             = data.aws_ami.ubuntu_26_04_arm64.id
+  instance_type   = var.instance_type
+  subnet_id       = aws_subnet.public[1].id
+  security_groups = [aws_security_group.ec2.id]
+  user_data       = file("user_data_green.sh")
+
+  tags = {
+    Name = "green-instance"
+  }
+
+}
+
+resource "aws_lb_target_group_attachment" "blue" {
+  target_group_arn = aws_lb_target_group.blue.arn
+  target_id        = aws_instance.blue.id
+  port             = 80
+}
+
+resource "aws_lb_target_group_attachment" "green" {
+  target_group_arn = aws_lb_target_group.green.arn
+  target_id        = aws_instance.green.id
+  port             = 80
+}

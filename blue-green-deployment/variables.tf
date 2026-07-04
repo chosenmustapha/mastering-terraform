@@ -13,10 +13,12 @@ variable "public_subnet_cidr" {
   type        = list(string)
 }
 
-variable "istance_type" {
-  description = "The EC2 instance type."
+variable "instance_type" {
+  description = "EC2 instance type"
   type        = string
+  default     = "t4g.micro"
 }
+
 
 variable "active_environment" {
   description = "The active environment (blue or green)."
