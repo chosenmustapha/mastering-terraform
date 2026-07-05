@@ -186,7 +186,7 @@ resource "aws_instance" "blue" {
   ami             = data.aws_ami.ubuntu_26_04_arm64.id
   instance_type   = var.instance_type
   subnet_id       = aws_subnet.public[0].id
-  security_groups = [aws_security_group.ec2.id]
+  vpc_security_group_ids = [aws_security_group.ec2.id]
   user_data       = file("user_data_blue.sh")
 
   tags = {
@@ -198,7 +198,7 @@ resource "aws_instance" "green" {
   ami             = data.aws_ami.ubuntu_26_04_arm64.id
   instance_type   = var.instance_type
   subnet_id       = aws_subnet.public[1].id
-  security_groups = [aws_security_group.ec2.id]
+  vpc_security_group_ids = [aws_security_group.ec2.id]
   user_data       = file("user_data_green.sh")
 
   tags = {
