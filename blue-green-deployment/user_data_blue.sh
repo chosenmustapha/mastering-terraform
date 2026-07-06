@@ -1,10 +1,8 @@
 #!/bin/bash
 sudo apt update -y
-sudo apt install -y httpd
-
-# Start and enable Apache
-sudo systemctl start httpd
-sudo systemctl enable httpd
+sudo apt install -y apache2
+sudo systemctl start apache2
+sudo systemctl enable apache2
 
 # Write the Blue App HTML
 cat > /var/www/html/index.html << 'EOF'
@@ -60,4 +58,4 @@ cat > /var/www/html/index.html << 'EOF'
 </html>
 EOF
 
-sudo systemctl restart httpd
+sudo systemctl restart apache2
