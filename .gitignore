@@ -12,4 +12,12 @@
 
 # Crash and log files
 crash.log
-*.log   
+*.log  
+
+# Python virtual environment
+.venv/
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+
