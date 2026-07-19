@@ -8,8 +8,7 @@ import boto3
 
 dynamodb = boto3.resource("dynamodb")
 sns = boto3.client("sns")
-
-TABLE_NAME = os.environ["DYNAMODB_TABLE"]
+TABLE_NAME = os.environ["DYNAMODB_TABLE_NAME"]
 TOPIC_ARN = os.environ["SNS_TOPIC_ARN"]
 
 table = dynamodb.Table(TABLE_NAME)
