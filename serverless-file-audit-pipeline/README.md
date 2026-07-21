@@ -23,7 +23,7 @@ flowchart LR
 Use this path if your AWS credentials are already configured and you have created the remote-state bucket described in the next section.
 
 ```zsh
-git clone <your-repository-url>
+git clone https://github.com/chosenmustapha/mastering-terraform.git
 cd serverless-file-audit-pipeline
 
 terraform init
