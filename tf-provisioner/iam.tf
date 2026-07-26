@@ -4,7 +4,7 @@ data "aws_iam_policy_document" "ec2_assume" {
   statement {
     actions = ["sts:AssumeRole"]
     principals {
-      type        = service
+      type        = "Service"
       identifiers = ["ec2.amazonaws.com"]
     }
   }
@@ -12,7 +12,7 @@ data "aws_iam_policy_document" "ec2_assume" {
 
 resource "aws_iam_role" "ec2_role" {
   name               = "${var.project_name}-ec2-role"
-  assume_role_policy = aws_iam_policy_document.ec2_assume.json
+  assume_role_policy = data.aws_iam_policy_document.ec2_assume.json
 }
 
 resource "aws_iam_role_policy_attachment" "cloudwatch_agent" {
