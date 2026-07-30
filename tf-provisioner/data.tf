@@ -9,7 +9,7 @@ data "aws_subnets" "default" {
   }
 }
 
-data "aws_ami" "a120123" {
+data "aws_ami" "al2023" {
   most_recent = true
   owners      = ["amazon"]
 
