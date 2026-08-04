@@ -5,6 +5,12 @@ variable "aws_region" {
   default     = "us-east-1"
 }
 
+variable "availability_zone" {
+  description = "Availability Zone containing the subnet for the EC2 instance"
+  type        = string
+  default     = "us-east-1a"
+}
+
 variable "project_name" {
   description = "Prefix used to name/tag every resource"
   type        = string
@@ -13,6 +19,7 @@ variable "project_name" {
 variable "instance_type" {
   description = "The EC2 instance type to use for the provisioner"
   type        = string
+  default     = "t3.micro"
 }
 
 variable "allowed_ssh_cidr" {

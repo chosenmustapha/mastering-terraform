@@ -6,6 +6,10 @@ resource "aws_instance" "web" {
   key_name               = aws_key_pair.this.key_name
   iam_instance_profile   = aws_iam_instance_profile.ec2_profile.name
 
+  credit_specification {
+    cpu_credits = "standard"
+  }
+
   tags = {
     Name                 = "${var.project_name}-web"
     DecommissionTopicArn = local.sns_topic_arn
@@ -51,5 +55,8 @@ resource "aws_instance" "web" {
     command = "aws sns publish --topic-arn ${self.tags.DecommissionTopicArn} --subject 'Instance decommissioned' --message 'Instance ${self.id} was destroyed'"
   }
 
-  depends_on = [aws_s3_object.index_page]
+  depends_on = [
+    aws_s3_object.index_page,
+    aws_sns_topic.deploy_notifications
+  ]
 }
