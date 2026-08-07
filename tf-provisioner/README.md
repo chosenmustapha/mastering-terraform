@@ -75,7 +75,14 @@ Local machine (terraform apply / destroy)
 
 ## Setup
 
-Clone the repo and copy the example variables file:
+Clone the repository:
+
+```bash
+git clone https://github.com/chosenmustapha/mastering-terraform.git
+cd tf-provisioner
+```
+
+Copy the example variables file:
 
 ```bash
 cp terraform.tfvars.example terraform.tfvars
