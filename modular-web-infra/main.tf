@@ -14,3 +14,8 @@ module "security" {
   vpc_id           = module.networking.vpc_id
   ssh_allowed_cidr = var.ssh_allowed_cidr
 }
+module "storage" {
+  source = "./modules/storage"
+
+  project_name = var.project_name
+}
