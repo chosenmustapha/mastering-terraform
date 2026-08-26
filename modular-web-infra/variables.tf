@@ -40,5 +40,5 @@ variable "asg_max_size" {
 
 variable "ssh_allowed_cidr" {
   type    = string
-  default = "0.0.0.0/0" 
+  default = "0.0.0.0/0"
 }
