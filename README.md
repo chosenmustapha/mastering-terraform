@@ -2,7 +2,7 @@
 
 This repository documents my hands-on journey learning **Terraform**, with a focus on provisioning and managing infrastructure on **AWS**.
 
-## 🎯 Objective
+## Objective
 
 The purpose of this repository is to:
 - Build a solid understanding of Terraform fundamentals
@@ -10,7 +10,7 @@ The purpose of this repository is to:
 - Capture practical examples, patterns, and lessons learned
 - Create a reusable reference for future projects
 
-## 📁 Repository Structure
+## Repository Structure
 
 The repository is organized by topic. Each topic has its own directory containing Terraform configurations and a dedicated `README.md` with explanations and notes.
 
@@ -20,7 +20,7 @@ Each topic-level README typically includes:
 - Commands used
 - Key takeaways
 
-## 🧭 Learning Roadmap
+## Learning Roadmap
 
 ### 1. Fundamentals
 - Installation and setup
@@ -46,20 +46,20 @@ Each topic-level README typically includes:
 - CI/CD integration
 - Best practices and optimization
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - Terraform
 - AWS
 - AWS CLI
 - Git & GitHub
 
-## 📈 Progression
+## Progression
 
 This is an evolving project:
 - Early stages focus on foundational concepts
 - Later stages will cover real-world infrastructure scenarios and advanced patterns
 
-## ⚠️ Notes
+## Notes
 
 - This repository is for learning and demonstration purposes
 - No sensitive information is committed
