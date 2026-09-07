@@ -5,7 +5,7 @@ It walks through configuring Terraform, connecting to AWS, and provisioning a ba
 
 ---
 
-## 🚀 Prerequisites
+## Prerequisites
 
 ### 1. Install AWS CLI
 
@@ -61,7 +61,7 @@ Enter:
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 .
@@ -71,7 +71,7 @@ Enter:
 
 ---
 
-## 🧠 Understanding `main.tf`
+## Understanding `main.tf`
 
 Below is the configuration used in this project:
 
@@ -98,7 +98,7 @@ resource "aws_vpc" "my_vpc" {
 
 ---
 
-## 🔍 Breakdown
+## Breakdown
 
 ### 1. Terraform Block
 
@@ -148,7 +148,7 @@ resource "aws_vpc" "my_vpc" {
 
 ---
 
-## ⚙️ Terraform Workflow
+## Terraform Workflow
 
 ### 1. Initialize Terraform
 
@@ -216,7 +216,7 @@ crash.log
 
 ---
 
-## 📌 Notes
+## Notes
 
 - Never commit `.tfstate` files — they may contain sensitive data  
 - Use IAM users instead of root credentials  
