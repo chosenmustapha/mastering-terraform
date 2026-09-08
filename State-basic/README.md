@@ -5,7 +5,7 @@ It builds on basic Terraform workflows by introducing **remote state management*
 
 ---
 
-## 🚀 Project Summary
+## Project Summary
 
 This configuration:
 
@@ -18,7 +18,7 @@ This setup reflects how Terraform is used in modern AWS environments — **simpl
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 .
@@ -28,7 +28,7 @@ This setup reflects how Terraform is used in modern AWS environments — **simpl
 
 ---
 
-## 🧩 Terraform Configuration Breakdown
+## Terraform Configuration Breakdown
 
 Below is the exact configuration used in this project:
 
@@ -137,7 +137,7 @@ resource "aws_vpc" "my_vpc" {
 
 ---
 
-## ⚙️ Terraform Workflow
+## Terraform Workflow
 
 ### Initialize
 
@@ -184,7 +184,7 @@ terraform destroy
 
 ---
 
-## 🔐 Key Design Decisions
+## Key Design Decisions
 
 ### Remote State in S3
 
