@@ -205,7 +205,7 @@ terraform destroy
 
 ---
 
-## 📌 Important Notes
+## Important Notes
 
 - Ensure your S3 bucket already exists before running `terraform init`  
 - Enable **bucket versioning** for additional protection against accidental state loss  
