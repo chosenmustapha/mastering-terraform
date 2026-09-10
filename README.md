@@ -1,4 +1,4 @@
-# ☁️ Terraform Learning Journey
+# Terraform Learning Journey
 
 This repository documents my hands-on journey learning **Terraform**, with a focus on provisioning and managing infrastructure on **AWS**.
 
@@ -65,6 +65,6 @@ This is an evolving project:
 - No sensitive information is committed
 - Always review `terraform plan` output before applying changes
 
-## 💬 Feedback
+## Feedback
 
 Suggestions, improvements, or discussions are always welcome.
