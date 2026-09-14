@@ -192,7 +192,7 @@ terraform destroy
 
 ---
 
-## 🔒 Security Best Practices
+## Security Best Practices
 
 Add this to your `.gitignore`:
 
