@@ -29,7 +29,7 @@ aws --version
 
 There are two approaches:
 
-- ❌ Root user (not recommended)
+- Root user (not recommended)
 - IAM user (recommended)
 
 #### Steps (IAM User):
