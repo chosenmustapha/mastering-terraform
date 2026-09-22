@@ -225,7 +225,7 @@ crash.log
 
 ---
 
-## 📚 Learn More
+## Learn More
 
 - Terraform Registry: https://registry.terraform.io  
 - AWS VPC Docs: https://docs.aws.amazon.com/vpc/  
