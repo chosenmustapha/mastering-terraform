@@ -1,6 +1,6 @@
 
 
-# Terraform Functions Mini Project
+# ☁️Terraform Functions Mini Project
 
 ## Overview
 
