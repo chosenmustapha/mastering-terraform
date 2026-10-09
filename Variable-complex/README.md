@@ -1,4 +1,4 @@
-# Terraform Complex Variables Demo
+# ☁️Terraform Complex Variables Demo
 
 This project provisions a simple AWS infrastructure while intentionally focusing on demonstrating how to work with complex variable types in Terraform. Instead of just spinning up resources, the goal here is to show how different data structures like lists, tuples, maps, sets, and objects can be defined and used effectively in a real configuration.
 
