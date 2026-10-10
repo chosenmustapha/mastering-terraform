@@ -1,4 +1,4 @@
-# Terraform Variables (Primitive Types) – Project Walkthrough
+# ☁️Terraform Variables (Primitive Types) – Project Walkthrough
 
 ## Project Overview
 
